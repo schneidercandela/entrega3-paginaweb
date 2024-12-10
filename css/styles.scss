@@ -1,0 +1,185 @@
+// Variables
+$primary-color: #002b5c; // Azul oscuro
+$secondary-color: #ffffff; // Blanco
+$background-color: #f4f4f4; // Fondo general
+$font-family-primary: 'Arial, sans-serif';
+$font-family-secondary: 'Roboto, sans-serif';
+$font-size-base: 16px;
+$spacing-unit: 10px;
+
+// Mixins
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin media-query($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
+// General Styles
+body {
+  font-family: $font-family-primary;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+}
+
+// Header
+header {
+  @include flex-between;
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: $spacing-unit;
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-right: $spacing-unit;
+  }
+
+  p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+
+    a {
+      font-size: 7vh;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      color: $secondary-color;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// Navigation
+nav {
+  margin-left: auto;
+
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-left: 20px;
+
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        font-size: 16px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Titles
+h1, h2 {
+  color: $primary-color;
+  font-weight: bold;
+
+  a {
+    text-decoration: none;
+    &:hover {
+      color: rgba(0, 0, 0, 0.721);
+    }
+  }
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+.titulos {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $primary-color;
+  @include text-center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid $primary-color;
+  padding-bottom: 0.5rem;
+}
+
+// Sections
+section {
+  background-color: $secondary-color;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  @include text-center;
+  @include box-shadow(0, 4px, 8px, rgba(0, 0, 0, 0.1));
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+}
+
+// Footer
+footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  font-weight: bold;
+  @include text-center;
+  padding: $spacing-unit;
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-top: $spacing-unit;
+  }
+
+  &.footer {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+    @include box-shadow(0, -2px, 5px, rgba(0, 0, 0, 0.1));
+  }
+}
+
+// Utility Classes
+.img-logo {
+  width: 200px;
+}
+
+.imagen-principal {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+// Media Queries
+@include media-query(1024px) {
+  header {
+    @include flex-between;
+  }
+}
+
+
+
