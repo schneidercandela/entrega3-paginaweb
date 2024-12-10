@@ -3,8 +3,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el fondo */
 }
 
+/* Efectos de transición en el header */
 header {
   display: flex;
   justify-content: space-between;
@@ -12,17 +14,30 @@ header {
   background-color: #002b5c;
   color: #ffffff;
   padding: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave al cambiar el color y el movimiento */
 }
+
+header:hover {
+  transform: translateY(-5px); /* Hace que el header suba ligeramente al pasar el mouse */
+}
+
 header img {
   width: 50px;
   height: auto;
   margin-right: 10px;
+  transition: transform 0.3s ease; /* Animación para el logo */
 }
+
+header img:hover {
+  transform: rotate(360deg); /* Gira el logo al pasar el mouse */
+}
+
 header p {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
+
 header p a {
   font-size: 7vh;
   text-transform: uppercase;
@@ -30,38 +45,35 @@ header p a {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #ffffff;
   letter-spacing: 1px;
+  transition: color 0.3s ease; /* Transición suave del color */
 }
 
-nav {
-  margin-left: auto;
+header p a:hover {
+  color: #ff6600; /* Color naranja al pasar el mouse */
 }
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-nav ul li {
-  margin-left: 20px;
-}
+
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
+  transition: color 0.3s ease, transform 0.2s ease; /* Animación de color y desplazamiento */
 }
+
 nav ul li a:hover {
   text-decoration: underline;
+  color: #ff6600;
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño del enlace al pasar el mouse */
 }
 
 h1, h2 {
   color: #002b5c;
   font-weight: bold;
+  transition: color 0.3s ease; /* Transición del color */
 }
-h1 a, h2 a {
-  text-decoration: none;
-}
+
 h1 a:hover, h2 a:hover {
   color: rgba(0, 0, 0, 0.721);
+  transform: scale(1.05); /* Agranda ligeramente los títulos al pasar el mouse */
 }
 
 h1 {
@@ -72,6 +84,24 @@ h2 {
   font-size: 35px;
 }
 
+h1, h2 {
+    color: #002b5c; /* Color azul oscuro */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave del color */
+  }
+  
+  h1 a, h2 a {
+    text-decoration: none; /* Sin subrayado */
+    color: #002b5c; /* Color azul oscuro */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  h1 a:hover, h2 a:hover {
+    color: rgba(0, 0, 0, 0.721); /* Cambia el color al pasar el mouse */
+    transform: scale(1.05); /* Agranda ligeramente el título al pasar el mouse */
+  }
+  
+
 .titulos {
   font-size: 2rem;
   font-weight: bold;
@@ -80,6 +110,8 @@ h2 {
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #002b5c;
   padding-bottom: 0.5rem;
+  animation: fadeIn 1s ease-out; /* Animación al aparecer */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 section {
@@ -89,12 +121,24 @@ section {
   margin: 20px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de sombra y movimiento */
 }
+
+section:hover {
+  transform: scale(1.05); /* Hace que la sección se agrande ligeramente */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más prominente al pasar el mouse */
+}
+
 section img {
   width: 100%;
   max-width: 300px;
   height: auto;
   margin-bottom: 10px;
+  transition: transform 0.3s ease; /* Animación de las imágenes */
+}
+
+section img:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
 }
 
 footer {
@@ -103,17 +147,37 @@ footer {
   font-weight: bold;
   text-align: center;
   padding: 10px;
+  transition: background-color 0.3s ease; /* Transición del color de fondo */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifx;
 }
+
+footer:hover {
+  background-color: #ff6600; /* Color naranja al pasar el mouse */
+}
+
 footer img {
   width: 50px;
   height: auto;
   margin-top: 10px;
 }
+
 footer.footer {
   position: relative;
   width: 100%;
   padding: 1rem 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .img-logo {
@@ -126,6 +190,7 @@ footer.footer {
   height: auto;
   margin: 0 auto;
   display: block;
+  animation: fadeIn 1s ease-out; /* Animación de fade-in en la imagen principal */
 }
 
 @media (min-width: 1024px) {
@@ -137,3 +202,4 @@ footer.footer {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
